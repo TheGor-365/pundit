@@ -1,0 +1,30 @@
+<div class="bg-light shadow rounded p-5 col-6">
+  <%= form_with(model: post) do |form| %>
+
+    <% if post.errors.any? %>
+      <p><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved</p>
+      <% post.errors.each do |error| %>
+        <p><%= error.full_message %></p>
+      <% end %>
+    <% end %>
+
+    <div>
+      <%= form.label :title, class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= form.label :body, class: "form-label" %>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+
+    <div>
+      <%= form.label :published, class: "form-label" %>
+      <%= form.check_box :published, class: "form-control" %>
+    </div>
+
+    <div class="mt-2">
+      <%= form.submit class: "btn btn-sm btn-outline-success" %>
+    </div>
+  <% end %>
+</div>

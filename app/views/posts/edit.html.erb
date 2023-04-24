@@ -1,0 +1,11 @@
+<h1 class="text-center mb-5">
+  Editing post
+</h1>
+
+<%= render "form", post: @post %>
+
+<br>
+<div class="float-end">
+  <%= link_to "Show post", @post %>
+  <%= link_to "Back to posts", posts_path, class: "text-secondary" %>
+</div>
