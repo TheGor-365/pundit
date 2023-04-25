@@ -1,0 +1,10 @@
+<h1>Wellcome</h1>
+
+<p>
+  <%= current_user&.admin? %>
+</p>
+
+<h5>
+  <%= link_to "Posts", posts_path, class: "text-success" %>
+</h5>
+<hr>

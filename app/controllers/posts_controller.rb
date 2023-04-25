@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[ index show ]
+  before_action :authorize_user, except: %i[ index show ]
 
   def index
     @posts = Post.all
@@ -42,6 +43,12 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def authorize_user
+    post = @post || Post
+    authorize post
+  end
+
   def set_post
     @post = Post.find(params[:id])
   end

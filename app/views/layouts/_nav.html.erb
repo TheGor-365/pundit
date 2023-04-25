@@ -28,11 +28,16 @@
           <%= link_to 'Edit registration', edit_user_registration_path, class: "btn btn-sm btn-primary" %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-sm btn-danger" %>
         <% else %>
-
           <%= link_to 'Register', new_user_registration_path, class: "btn btn-sm btn-success"  %>
           <%= link_to 'Login', new_user_session_path, class: "btn btn-sm btn-primary"  %>
         <% end %>
       </div>
+    </div>
+
+    <div class="float-end">
+      <small class="text-success mx-5 px-5">
+        <%= current_user.email if current_user %>
+      </small>
     </div>
   </div>
 </nav>
